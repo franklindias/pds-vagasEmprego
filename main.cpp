@@ -48,11 +48,14 @@ struct Empresa
 //declaração da funcao deletar, que servirá pra qualquer entidade (candidato, vaga ou empresa).
 bool deletar(int id, int entidade);
 
+//declaração da funcao deletar, resposavel por gerar a tela de edicao de empresas.
+void editarEmpresa();
+
 Empresa empresas[50];
 Candidato candidatos[50];
 
 //variáveis auxiliares e de verificacao
-int opcao, quantEmpresas = 0, quantCandidatos = 0, aux;
+int opcao, quantEmpresas = 0, quantCandidatos = 0, aux, idRegistro;
 bool verificar = true, verificaAdmin = true;
 
 int main()
@@ -74,12 +77,12 @@ int main()
 
     scanf("%d", &opcao);
 
+     system("clear");
+
     switch (opcao){
        //listar vagas de emprego cadatradas
         case 1:
             do{
-
-            system("clear");
 
             printf("%s", "------------------------------\n");
             printf("%s", "------  ADMINISTRADOR   ------\n");
@@ -145,36 +148,47 @@ int main()
                         printf("%s", empresas[i].nome);
                         printf("%s", "\t|\t");
                         printf("%s", empresas[i].endereco);
-                        printf("%s", "\t|\t");
+                        printf("%s", "\t\t|\t");
                         printf("%s", empresas[i].telefone );
                         printf("%s", "\n");
                     }
 
 
                     printf("%s", "\nDigite um [ID] para Deletar ou Editar ou [0] Para sair:\n");
-                    scanf("%d", &aux);
+                    scanf("%d", &idRegistro);
 
-                    if (aux > 0){
+                    if (idRegistro > 0){
 
                         printf("%s", "\nDeseja [1]Editar ou [2]Deletar essa Empresa?\n");
                         scanf("%d", &aux);
 
                         switch(aux){
                             case 1:
+                                system("clear");
+                                editarEmpresa();
+                                system("clear");
+                                printf("%s","\n Empresa Atualizada com Sucesso!! \n\n");
                                 break;
                             case 2:
-
                                 deletar(aux, 1);
-
+                                system("clear");
+                                printf("%s","\n Empresa Deletada com Sucesso!! \n\n");
                                 break;
-                            default: break;
-                        }
-                    }
 
+                            default:
+                                system("clear");
+                                break;
+                        }
+                        break;
+                    }
+                    system("clear");
+                    break;
+                }else{
+                    system("clear");
+                    printf("%s","\n Não ha empresas cadastradas!! \n\n");
                     break;
                 }
 
-                break;
             case 3:
                 printf("%s", "\nCadastrar Candidato: ");
                 break;
@@ -253,7 +267,7 @@ int main()
             break;
         default :
             system("clear");
-             printf("%s", "\nOpcao Invalida.\n ");
+            printf("%s", "\nOpcao Invalida.\n ");
             break;
         }
 
@@ -286,6 +300,28 @@ switch (entidade){
       quantEmpresas--;
       break;
 }
+
+}
+
+void editarEmpresa(){
+
+    printf("%s","\n EDITAR A EMPRESA ");
+    printf("%s","\n ---------------------- ");
+
+    printf("%s","\n Digite o Novo Nome da Empresa \n");
+    scanf("%s", &empresas[idRegistro-1].nome);
+
+    printf("%s","\n Digite o Novo Endereco \n");
+    scanf("%s", &empresas[idRegistro-1].endereco);
+
+    printf("%s","\n Digite o Novo Telefone \n");
+    scanf("%s", &empresas[idRegistro-1].telefone);
+
+    printf("%s","\n Digite o Novo Usuario \n");
+    scanf("%s", &empresas[idRegistro-1].user);
+
+    printf("%s","\n Digite a Nova Senha \n");
+    scanf("%s", &empresas[idRegistro-1].pass);
 
 }
 
