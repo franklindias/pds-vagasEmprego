@@ -48,15 +48,8 @@ int opcao, quantEmpresas = 0, quantCandidatos = 0, aux;
 
 bool verificar = true, verificaAdmin = true;
 
-string user;
-string pass;
-
 int main()
 {
-    //vector<Vaga> vagas;
-
-    string userlocal = "admin";
-    string passlocal = "admin";
 
 
     do{
@@ -78,17 +71,6 @@ int main()
        //listar vagas de emprego cadatradas
         case 1:
             do{
-
-            printf("%s", "USUARIO: ");
-            scanf("%s", &user);
-            printf("%s", "SENHA: ");
-            scanf("%s", &pass);
-
-            if ((strcasecmp(user, userlocal) != 0) or (strcasecmp(pass, passlocal) != 0)){
-                system("clear");
-                printf("%s", "Senha Incorreta!\n");
-                break;
-            }
 
             system("clear");
 
