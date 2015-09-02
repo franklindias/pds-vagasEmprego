@@ -14,6 +14,7 @@ struct Candidato
     char funcaoDesejada[10];
     char telefoneCandidato[10];
 
+    //para sistema de autenticacao futuramente
     char user[5];
     char pass[5];
 };
@@ -23,6 +24,8 @@ struct Vaga
     char funcaoVaga[15];
     char cargaHoraria[10];
     char salario[5];
+
+    //variavel de controle para verificar quantos candidatos já foram cadatrados naquela vaga
     int quantCanditados = 0;
     Candidato canditados[5];
 };
@@ -35,17 +38,21 @@ struct Empresa
     char telefone[10];
     char user[5];
     char pass[5];
+
+
+    //variavel de controle para verificar quantas vagas já foram cadatrados naquela empresa
     int quantVagas = 0;
     Vaga vagas[5];
 };
 
+//declaração da funcao deletar, que servirá pra qualquer entidade (candidato, vaga ou empresa).
 bool deletar(int id, int entidade);
 
 Empresa empresas[50];
 Candidato candidatos[50];
 
+//variáveis auxiliares e de verificacao
 int opcao, quantEmpresas = 0, quantCandidatos = 0, aux;
-
 bool verificar = true, verificaAdmin = true;
 
 int main()
@@ -264,12 +271,16 @@ int main()
 
 bool deletar(int id, int entidade){
 
+    //o id é exatamente a posição no array + 1
     int posicaoRegistro = id -1;
 
 switch (entidade){
 
     case 1:
       for (int i=posicaoRegistro; i<quantEmpresas;i++){
+            //insere a empresa na posição da empresa que se deseja apagar, a empresa posterior a ela no array.
+            //apagando assim o que se deseja, tendo em vista que o FOr começa exatamente na
+            //posição do item que deseja deletar
             empresas[i] = empresas[i+1];
       }
       quantEmpresas--;
