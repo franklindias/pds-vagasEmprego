@@ -305,6 +305,8 @@ switch (entidade){
 
 void editarEmpresa(){
 
+    //utilizado a variavel global idRegistro, que é setada logo antes dessa funcao ser chamada
+
     printf("%s","\n EDITAR A EMPRESA ");
     printf("%s","\n ---------------------- ");
 
