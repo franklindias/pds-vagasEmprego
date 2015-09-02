@@ -84,129 +84,127 @@ int main()
         case 1:
             do{
 
-            printf("%s", "------------------------------\n");
-            printf("%s", "------  ADMINISTRADOR   ------\n");
-            printf("%s", "------------------------------\n");
-            printf("%s", "---    ESCOLHA UMA OPCAO   ---\n");
-            printf("%s", "------------------------------\n");
-            printf("%s", "-    #1  Cadastrar Empresa   -\n");
-            printf("%s", "-    #2  Listar Empresas     -\n");
-            printf("%s", "-    #3  Cadastrar Candidato -\n");
-            printf("%s", "-    #4  Listar Candidatos   -\n");
-            printf("%s", "-    #9  Menu Principal      -\n");
-            printf("%s", "-    #0  Fechar Programa     -\n");
-            printf("%s", "------------------------------\n\n");
+                printf("%s", "------------------------------\n");
+                printf("%s", "------  ADMINISTRADOR   ------\n");
+                printf("%s", "------------------------------\n");
+                printf("%s", "---    ESCOLHA UMA OPCAO   ---\n");
+                printf("%s", "------------------------------\n");
+                printf("%s", "-    #1  Cadastrar Empresa   -\n");
+                printf("%s", "-    #2  Listar Empresas     -\n");
+                printf("%s", "-    #3  Cadastrar Candidato -\n");
+                printf("%s", "-    #4  Listar Candidatos   -\n");
+                printf("%s", "-    #9  Menu Principal      -\n");
+                printf("%s", "-    #0  Fechar Programa     -\n");
+                printf("%s", "------------------------------\n\n");
 
-            printf("%s", "\nDigite uma opcao: ");
+                printf("%s", "\nDigite uma opcao: ");
 
-            scanf("%d", &opcao);
+                scanf("%d", &opcao);
 
-            switch(opcao){
+                switch(opcao){
 
-            case 1:
+                case 1:
 
-                system("clear");
+                    system("clear");
 
-                printf("%s","\n CADASTRAR NOVA EMPRESA ");
-                printf("%s","\n ---------------------- ");
+                    printf("%s","\n CADASTRAR NOVA EMPRESA ");
+                    printf("%s","\n ---------------------- ");
 
-                printf("%s","\n Digite o Nome da Empresa \n");
-                scanf("%s", &empresas[quantEmpresas].nome);
+                    printf("%s","\n Digite o Nome da Empresa \n");
+                    scanf("%s", &empresas[quantEmpresas].nome);
 
-                printf("%s","\n Digite o Endereco \n");
-                scanf("%s", &empresas[quantEmpresas].endereco);
+                    printf("%s","\n Digite o Endereco \n");
+                    scanf("%s", &empresas[quantEmpresas].endereco);
 
-                printf("%s","\n Digite o Telefone \n");
-                scanf("%s", &empresas[quantEmpresas].telefone);
+                    printf("%s","\n Digite o Telefone \n");
+                    scanf("%s", &empresas[quantEmpresas].telefone);
 
-                printf("%s","\n Digite o Usuario \n");
-                scanf("%s", &empresas[quantEmpresas].user);
+                    printf("%s","\n Digite o Usuario \n");
+                    scanf("%s", &empresas[quantEmpresas].user);
 
-                printf("%s","\n Digite a Senha \n");
-                scanf("%s", &empresas[quantEmpresas].pass);
+                    printf("%s","\n Digite a Senha \n");
+                    scanf("%s", &empresas[quantEmpresas].pass);
 
-                system("clear");
+                    system("clear");
 
-                printf("%s","\n Empresa Cadastrada Com Sucesso!! \n\n");
+                    printf("%s","\n Empresa Cadastrada Com Sucesso!! \n\n");
 
-                quantEmpresas++;
-                break;
-            case 2:
+                    quantEmpresas++;
+                    break;
+                case 2:
 
-                system("clear");
+                    system("clear");
 
-                if (quantEmpresas > 0){
+                    if (quantEmpresas > 0){
 
-                    printf("%s", "\n  EMPRESAS CADASTRADAS  ");
-                    printf("%s", "\n ---------------------- ");
+                        printf("%s", "\n  EMPRESAS CADASTRADAS  ");
+                        printf("%s", "\n ---------------------- ");
 
-                    printf("%s", "\nID \t|\tNOME\t|\tENDERECO\t|\tTELEFONE\n");
+                        printf("%s", "\nID \t|\tNOME\t|\tENDERECO\t|\tTELEFONE\n");
 
-                    for (int i=0;i<quantEmpresas; i++){
-                        printf("%d", i+1);
-                        printf("%s", "\t|\t");
-                        printf("%s", empresas[i].nome);
-                        printf("%s", "\t|\t");
-                        printf("%s", empresas[i].endereco);
-                        printf("%s", "\t\t|\t");
-                        printf("%s", empresas[i].telefone );
-                        printf("%s", "\n");
-                    }
-
-
-                    printf("%s", "\nDigite um [ID] para Deletar ou Editar ou [0] Para sair:\n");
-                    scanf("%d", &idRegistro);
-
-                    if (idRegistro > 0){
-
-                        printf("%s", "\nDeseja [1]Editar ou [2]Deletar essa Empresa?\n");
-                        scanf("%d", &aux);
-
-                        switch(aux){
-                            case 1:
-                                system("clear");
-                                editarEmpresa();
-                                system("clear");
-                                printf("%s","\n Empresa Atualizada com Sucesso!! \n\n");
-                                break;
-                            case 2:
-                                deletar(aux, 1);
-                                system("clear");
-                                printf("%s","\n Empresa Deletada com Sucesso!! \n\n");
-                                break;
-
-                            default:
-                                system("clear");
-                                break;
+                        for (int i=0;i<quantEmpresas; i++){
+                            printf("%d", i+1);
+                            printf("%s", "\t|\t");
+                            printf("%s", empresas[i].nome);
+                            printf("%s", "\t|\t");
+                            printf("%s", empresas[i].endereco);
+                            printf("%s", "\t\t|\t");
+                            printf("%s", empresas[i].telefone );
+                            printf("%s", "\n");
                         }
+
+
+                        printf("%s", "\nDigite um [ID] para Deletar ou Editar ou [0] Para sair:\n");
+                        scanf("%d", &idRegistro);
+
+                        if (idRegistro > 0){
+
+                            printf("%s", "\nDeseja [1]Editar ou [2]Deletar essa Empresa?\n");
+                            scanf("%d", &aux);
+
+                            switch(aux){
+                                case 1:
+                                    system("clear");
+                                    editarEmpresa();
+                                    system("clear");
+                                    printf("%s","\n Empresa Atualizada com Sucesso!! \n\n");
+                                    break;
+                                case 2:
+                                    deletar(aux, 1);
+                                    system("clear");
+                                    printf("%s","\n Empresa Deletada com Sucesso!! \n\n");
+                                    break;
+
+                                default:
+                                    system("clear");
+                                    break;
+                            }
+                            break;
+                        }
+                        system("clear");
+                        break;
+                    }else{
+                        system("clear");
+                        printf("%s","\n Não ha empresas cadastradas!! \n\n");
                         break;
                     }
-                    system("clear");
+
+                case 3:
+                    printf("%s", "\nCadastrar Candidato: ");
                     break;
-                }else{
-                    system("clear");
-                    printf("%s","\n Não ha empresas cadastradas!! \n\n");
+                case 4:
+                    printf("%s", "\nListar Candidatos: ");
                     break;
+                case 9:
+                    verificaAdmin = false;
+                    break;
+                case 0:
+                    verificaAdmin = false;
+                    verificar = false;
+
+                default: break;
+
                 }
-
-            case 3:
-                printf("%s", "\nCadastrar Candidato: ");
-                break;
-            case 4:
-                printf("%s", "\nListar Candidatos: ");
-                break;
-            case 9:
-                verificaAdmin = false;
-                break;
-            case 0:
-                verificaAdmin = false;
-                verificar = false;
-
-            default: break;
-
-            }
-
-
             }while(verificaAdmin);
 
             break;
